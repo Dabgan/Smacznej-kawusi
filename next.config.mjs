@@ -1,6 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // Add any necessary Next.js configuration here
+    reactStrictMode: true,
+    output: 'standalone',
+    webpack: (config, { isServer }) => {
+        if (!isServer) {
+            config.resolve.fallback = {
+                ...config.resolve.fallback,
+                fs: false,
+                path: false,
+            };
+        }
+        return config;
+    },
 };
 
 export default nextConfig;

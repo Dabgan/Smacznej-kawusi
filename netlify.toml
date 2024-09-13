@@ -4,3 +4,8 @@
 
    [[plugins]]
      package = "@netlify/plugin-nextjs"
+
+   [[redirects]]
+     from = "/names.txt"
+     to = "/names.txt"
+     status = 200
